@@ -1,0 +1,21 @@
+{
+  "name": "io19-howto",
+  "version": "0.1.0",
+  "description": "Deeplocal app for Google IO \"How To\" exhibit",
+  "main": "app.js",
+  "dependencies": {
+    "express": "^4.16.4"
+  },
+  "devDependencies": {
+    "node-sass": "^4.11.0",
+    "nodemon": "^1.18.11"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "compile:sass": "node-sass public/scss/main.scss public/css/style.css -w",
+    "server": "nodemon server.js",
+    "start": "node server.js"
+  },
+  "author": "Deeplocal",
+  "license": "ISC"
+}

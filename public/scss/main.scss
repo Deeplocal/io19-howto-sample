@@ -1,0 +1,362 @@
+/*
+   MAIN.SCSS
+   - Pulls together all of our styles
+   ========================================================================== */
+
+@import 'colors';
+@import 'reset';
+@import 'global';
+@import 'typography';
+
+#global-container{
+  padding-bottom:10em;
+}
+
+.homepage{
+  display:grid;
+  grid-template-columns:1fr;
+  grid-template-rows:1fr 1fr;
+
+  h1{
+    font-size:2em;
+    text-align:center;
+    margin-top:2em;
+
+    a{
+      text-decoration: underline;
+      transition:color 0.1s ease-in-out;
+
+      &:hover{
+        color:#4caf50;
+        transition:color 0.1s ease-in-out;
+      }
+    }
+  }
+}
+
+#home-links{
+  width:70%;
+  margin:2em auto 0 auto;
+}
+
+.home-link-square{
+  display:block;
+  width:100%;
+  position:relative;
+  border:1px solid white;
+  margin-bottom:3em;
+
+  &:after{
+    content:"";
+    display:block;
+    padding-bottom:45%;
+    margin-top:45%;
+    text-align:center;
+    color:$white;
+    font-size:2em;
+    font-weight:700;
+  }
+
+  &#home-link-one:after{
+    content: "Succulent"
+  }
+
+  &#home-link-two:after{
+    content: "Starburst Flower"
+  }
+}
+
+#home-link-one{
+  background-image: url('https://makeorigamiflowers.com/img/home-succulent.jpg');
+  background-size:cover;
+  background-position:center center;
+}
+
+#home-link-two{
+  background-image: url('https://makeorigamiflowers.com/img/home-starburst-flower.jpg');
+  background-size:cover;
+  background-position:center center;
+}
+
+#hero{
+  width:100%;
+  background-repeat:no-repeat;
+  background-size:cover;
+  background-position:center center;
+  height:35em;
+  position:relative;
+
+  &.succulent-hero{
+    background-image:url('https://makeorigamiflowers.com/img/succulent/header.jpg');
+  }
+
+  &.starburst-hero{
+    background-image:url('https://makeorigamiflowers.com/img/succulent/header.jpg');
+  }
+}
+
+#hero-content-container{
+  border-bottom:none;
+  margin-top:0;
+  height:100%;
+  position:relative;
+
+  h1{
+    font-weight:normal;
+    color:$white;
+    position:absolute;
+    bottom:0;
+    left:0;
+    line-height:1.3em;
+  }
+}
+
+#intro{
+  p{
+    margin-top:-0.4em;
+    margin-bottom:0.3em;
+  }
+}
+
+#tools-and-supplies{
+  margin-top:1em;
+  padding-bottom:2em;
+
+  h3{
+    margin-top:1em;
+    font-size:1.5em;
+    margin-bottom:-0.1em;
+  }
+
+  p{
+    font-weight:400;
+    margin-bottom:1.5em;
+  }
+
+  ul{
+    list-style-type:none;
+    margin:0;
+    padding:0;
+
+    li{
+      display:grid;
+      grid-template-columns:40% 60%;
+      grid-template-rows:10% 90%;
+      grid-template-areas:
+        "tool-image tool-title"
+        "tool-image tool-desc";
+      margin-bottom:1em;
+
+      img{
+        width:90%;
+        grid-area:tool-image;
+        border-radius:5px;
+      }
+
+      a{
+        grid-area:tool-title;
+        font-size:1em;
+        margin-top:0.5em;
+      }
+
+      p{
+        grid-area:tool-desc;
+        font-weight:400;
+      }
+    }
+  }
+}
+
+.content-container{
+  width:90%;
+  margin:1em auto;
+  position:relative;
+  border-bottom:1px solid $lightGray;
+  padding-bottom:1em;
+}
+
+.step-container{
+  display:grid;
+  grid-auto-rows:auto;
+  grid-template-areas:
+    "step-title"
+    "step-image"
+    "step-description";
+
+  &.faq{
+    margin-bottom:-1.1em;
+    grid-auto-rows:auto;
+    grid-template-areas:
+      "step-title"
+      "step-description";
+
+    h3{
+      margin-bottom:0;
+    }
+  }
+
+  h3{
+    grid-area:step-title;
+    font-weight:700;
+    font-size:1.5em;
+
+    span{
+      display:block;
+      font-weight:400;
+      margin-top:0.3em;
+    }
+  }
+
+  img{
+    grid-area:step-image;
+    width:100%;
+    border-radius:5px;
+    margin-bottom:0.5em;
+  }
+
+  .item-text{
+    grid-area:step-description;
+    font-size:1.1em;
+    line-height:1.4em;
+    font-weight:400;
+  }
+
+  &#intro{
+    grid-template-areas:
+      "step-title"
+      "step-description";
+  }
+}
+
+.syntax-container{
+  grid-template-columns: 1fr !important;
+
+  h3{
+    margin-bottom:0 !important;
+  }
+}
+
+#syntax-highlighting{
+  height:15em;
+  overflow:hidden;
+
+  &.expanded{
+    height:auto;
+    overflow:auto;
+  }
+}
+
+#expand-syntax{
+  background:none;
+  border:none;
+  margin-left:0.3em;
+  cursor:pointer;
+  color:$gray;
+
+  &:focus{
+    outline:none;
+  }
+}
+
+pre, code{
+  border-radius:5px;
+}
+
+#privacy-policy{
+  h3{
+    margin-top:2em;
+  }
+  
+  p, li{
+    font-weight:400;
+  }
+}
+
+// BREAKPOINTS
+@include breakpoint(phablet){
+  #hero-content-container{
+    border-bottom:none;
+  }
+
+  .homepage{
+    h1{
+      margin-top:5em;
+    }
+  }
+
+  #home-links{
+    width:90%;
+    display:grid;
+    grid-template-columns:repeat(2, 1fr);
+    grid-column-gap:2em;
+  }
+
+  #intro{
+      p{
+        margin-bottom:-0.5em;
+      }
+    }
+
+  #tools-and-supplies{
+    border-bottom:none;
+    padding-bottom:0;
+
+    ul{
+      display:grid;
+      grid-template-columns:repeat(2, 1fr);
+      grid-auto-rows:auto;
+      grid-gap:0.5em 1em;
+    }
+  }
+
+  .content-container{
+    width:80%;
+  }
+
+  .step-container{
+    margin:2em auto 2em auto;
+    border-bottom:0;
+    grid-template-columns: 60% 40%;
+    grid-template-areas:
+      "step-title step-title"
+      "step-image step-description";
+
+    &.faq{
+      grid-template-columns:1fr;
+      grid-auto-rows:auto;
+      grid-template-areas:
+        "step-title"
+        "step-description";
+    }
+
+
+    img{
+      width:90%;
+    }
+
+    h3{
+      span{
+        display:inline-block;
+        margin-left:0.5em;
+        margin-top:0;
+      }
+    }
+
+    &#intro{
+      grid-template-columns:1fr;
+      grid-template-areas:
+        "step-title"
+        "step-description";
+    }
+  }
+} // end phablet breakpoint
+
+@include breakpoint(laptop){
+  .content-container{
+    width:60%;
+  }
+
+  #home-links{
+    width:70%;
+  }
+}
